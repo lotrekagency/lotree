@@ -1,11 +1,16 @@
 # lotree
 
-Your Xmas tree lights, with Arduino
+Lotrek's Xmas tree, made with Arduino and a led strip
 
-##How to compile
+## Install
+
+- Install [Arduino IDE](https://www.arduino.cc/en/Main/Software)
+- Install [Adafruit Neopixel libraries](https://github.com/adafruit/Adafruit_NeoPixel)
+
+## How to compile
 
 - Open lotree.ino with Arduino IDE
-- Start compilinig
+- Compile and upload
 
 ## License
 
