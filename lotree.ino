@@ -15,6 +15,9 @@
 
 #include "AlternateAnimation.h"
 #include "JingleAnimation.h"
+#include "TheaterChaseAnimation.h"
+#include "ColorWipeAnimation.h"
+#include "RainbowAnimation.h"
 
 #define TOTAL_LEDS 180
 #define PIN 6
@@ -29,8 +32,11 @@ void setup() {
     strip.begin();
     strip.show();
     pinMode(A0, OUTPUT);
+    animations.insert((new ColorWipeAnimation())->setStrip(&strip)->setRepetitions(4));
+    animations.insert((new TheaterChaseAnimation())->setStrip(&strip)->setRepetitions(4));
     animations.insert(((new JingleAnimation())->setTonePin(A0))->setStrip(&strip)->setRepetitions(1));
-    animations.insert((new AlternateAnimation())->setStrip(&strip)->setRepetitions(4));
+    animations.insert((new RainbowAnimation())->setStrip(&strip)->setRepetitions(4));
+    animations.insert((new AlternateAnimation())->setStrip(&strip)->setRepetitions(1));
 }
 
 void loop() {
