@@ -12,13 +12,15 @@ void AlternateAnimation::drawFrame() {
     for (unsigned int colorIndex = 0 ; colorIndex < 4 ; colorIndex++) {
         for (uint16_t i = 0 ; i < pixels ; i++) {
             if (i % 2 == 0) {
-                strip->setPixelColor(i, colors[colorIndex]);
+                strip->setPixelColor(i, colors[colorIndex % 2]);
             }   
             else { 
                 strip->setPixelColor(i, colors[(colorIndex + 1) % 2]);
             }
         }
+        strip->show();
+        delay(1000);
+        
     }
-    strip->show();
-    delay(1000);
+
 };

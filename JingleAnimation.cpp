@@ -35,9 +35,13 @@ void JingleAnimation::drawFrame() {
     int MAX_COUNT = sizeof(melody) / 2;
     long tempo = 10000;
     int beat = 0;
-    int pause = 1000;
+    int pause = 100;
 
-    for (int i=0; i<MAX_COUNT; i++) {
+    Adafruit_NeoPixel* strip = this->getStrip();
+    uint16_t leds = strip->numPixels();
+    uint32_t color = strip->Color(127, 127, 127);
+
+    for (int i = 0; i < MAX_COUNT; i++) {
         note = melody[i];
         beat = 50;
 
@@ -54,20 +58,36 @@ void JingleAnimation::drawFrame() {
                 elapsed_time += (note);
             }
         } else {
-            for (int j = 0; j < rest_count; j++) {
-                delayMicroseconds(duration);
+            for (int j = 0; j < 15; j++) {
+                for (int q = 0; q < 3; q++) {
+                    for (uint16_t r = 0; r < strip->numPixels(); r = r + 3) {
+                        strip->setPixelColor(r + q, color);
+                    }
+                    strip->show();
+                    for (uint16_t r = 0; r < strip->numPixels(); r = r + 3) {
+                        strip->setPixelColor(r + q, 0);
+                    }
+                }
             }
         }
-        uint16_t leds = this->getStrip()->numPixels();
-        for (uint16_t led = 0 ; led < leds ; led++) {
-            if (led != this->tonePin)
-                digitalWrite(led, HIGH);
+
+        for (uint16_t r = 0; r < strip->numPixels(); r++) {
+            if (r % 2 == 0) {
+                if (i % 2 == 0) {
+                    strip->setPixelColor(r, color);
+                } else {
+                    strip->setPixelColor(r, 0);
+                }
+            } else {
+                 if (i % 2 == 0) {
+                    strip->setPixelColor(r, 0);
+                } else {
+                    strip->setPixelColor(r, color);
+                }
+            }
         }
-        // A pause between notes...
+        strip->show();
         delayMicroseconds(pause);
-        for (int led = 0 ; led < leds ; led++) {
-            if (led != this->tonePin)
-                digitalWrite(led, LOW);
-        }
+                
     }
 };

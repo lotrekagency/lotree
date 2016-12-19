@@ -26,6 +26,8 @@ Adafruit_NeoPixel strip = Adafruit_NeoPixel(TOTAL_LEDS, PIN, NEO_GRB + NEO_KHZ80
 
 
 void setup() {
+    strip.begin();
+    strip.show();
     pinMode(A0, OUTPUT);
     animations.insert(((new JingleAnimation())->setTonePin(A0))->setStrip(&strip)->setRepetitions(1));
     animations.insert((new AlternateAnimation())->setStrip(&strip)->setRepetitions(4));
