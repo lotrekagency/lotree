@@ -37,6 +37,7 @@ void setup() {
     animations.insert(((new JingleAnimation())->setTonePin(A0))->setStrip(&strip)->setRepetitions(1));
     animations.insert((new RainbowAnimation())->setStrip(&strip)->setRepetitions(4));
     animations.insert((new AlternateAnimation())->setStrip(&strip)->setRepetitions(1));
+    animations.insert((new SequenceAnimation())->setStrip(&strip)->setRepetitions(1));
 }
 
 void loop() {
