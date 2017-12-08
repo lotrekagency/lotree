@@ -18,8 +18,9 @@
 #include "TheaterChaseAnimation.h"
 #include "ColorWipeAnimation.h"
 #include "RainbowAnimation.h"
+#include "SequenceAnimation.h"
 
-#define TOTAL_LEDS 180
+#define TOTAL_LEDS 450
 #define PIN 6
 
 
