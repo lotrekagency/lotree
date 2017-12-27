@@ -1,6 +1,6 @@
 # lotree
 
-Lotrek's Xmas tree, made with Arduino and a led strip
+Lotrek's Xmas tree, made with Arduino and some [BTF-LIGHTING strips (Led WS2812b)](https://www.amazon.it/dp/B01CDTEJBG/ref=cm_sw_r_tw_dp_U_x_MF5qAbYGFVZF0)
 
 ## Install
 
