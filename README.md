@@ -7,14 +7,14 @@ Lotrek's Xmas tree, made with Arduino and some [BTF-LIGHTING strips (Led WS2812b
 - Install [Arduino IDE](https://www.arduino.cc/en/Main/Software)
 - Install [Adafruit Neopixel libraries](https://github.com/adafruit/Adafruit_NeoPixel)
 
-## How to compile
+## Build and upload
 
 - Open lotree.ino with Arduino IDE
 - Compile and upload
 
-## Create your own animations
+## Create your animations
 
-To create your own animation, start defining two files
+To create your custom animation, you need to define two files
 
 - MyAnimation.h that contains your header
 ```
@@ -62,7 +62,7 @@ strip->show();
 ```
 to show the pixels.
 
-Now you can include this animation in the main process (lotree.ino)
+Now you need to include the animation file header in the main process (lotree.ino) and register it!
 ```
 #include "MyAnimation.h"
 
@@ -71,7 +71,7 @@ void setup() {
     animations.insert((new MyAnimation())->setStrip(&strip)->setRepetitions(4));
 }
 ```
-As you can see you need to set the current strip and the repetitions for the current animation.
+As you can see you need to set the current strip reference and the times you want to repeat your animation.
 
 ## License
 
