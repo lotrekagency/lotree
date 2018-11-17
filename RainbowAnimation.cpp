@@ -62,5 +62,4 @@ void RainbowAnimation::drawFrame() {
     rainbow(strip, 20);
     rainbowCycle(strip, 20);
     theaterChaseRainbow(strip, 50);
-
 };
